@@ -1,6 +1,5 @@
 const changeBtn = document.getElementById("change_button");
-    const resetBtn = document.getElementById("Reset");
-    const gridItems = document.querySelectorAll("#grid-item");
+const resetBtn = document.getElementById("Reset");
 
     // Change Color
     changeBtn.addEventListener("click", () => {
@@ -8,20 +7,27 @@ const changeBtn = document.getElementById("change_button");
       const blockId = document.getElementById("block_id").value;
       const color = document.getElementById("colour_id").value;
 
-      // Reset all colors first
-      gridItems.forEach((item) => {
-        item.style.backgroundColor = "transparent";
+      // Reset all grid colors
+      const allBoxes = document.querySelectorAll(".grid-item");
+
+      allBoxes.forEach((box) => {
+        box.style.backgroundColor = "transparent";
       });
 
       // Change selected block color
-      if(blockId >= 1 && blockId <= 9){
-        gridItems[blockId - 1].style.backgroundColor = color;
+      const selectedBox = document.getElementById(blockId);
+
+      if(selectedBox){
+        selectedBox.style.backgroundColor = color;
       }
     });
 
     // Reset Button
     resetBtn.addEventListener("click", () => {
-      gridItems.forEach((item) => {
-        item.style.backgroundColor = "transparent";
+
+      const allBoxes = document.querySelectorAll(".grid-item");
+
+      allBoxes.forEach((box) => {
+        box.style.backgroundColor = "transparent";
       });
     });
